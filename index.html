@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#183f3a" />
+  <title>紐西蘭家庭露營車之旅 2027</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-icon">NZ</div><div><b>Wild Fern</b><small>FAMILY ROAD TRIP</small></div></div>
+      <div class="trip-chip"><span class="chip-dot"></span> 2027 WINTER JOURNEY</div>
+      <nav>
+        <button class="nav active" data-page="overview">⌂ <span>旅行總覽</span></button>
+        <button class="nav" data-page="itinerary">▦ <span>每日行程</span></button>
+        <button class="nav" data-page="budget">＄ <span>預算規劃</span></button>
+        <button class="nav" data-page="checklist">✓ <span>預訂清單</span></button>
+        <button class="nav" data-page="safety">❄ <span>冬季安全</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="avatar">4</div><div><b>一家四口</b><small>New Zealand · July 2027</small></div>
+      </div>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <div><p class="eyebrow">YOUR FAMILY ADVENTURE / 2027</p><h1 id="page-title">旅行總覽</h1></div>
+        <button class="outline" id="edit-trip">⚙ 編輯旅行設定</button>
+      </header>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="hero-tag"><span>✦</span> THE GREAT FAMILY ESCAPE</div>
+          <h2>把冬日的紐西蘭，<br/>變成全家的故事。</h2>
+          <p>山湖、冰川、峽灣與公路。用自己的步調，開啟一家四口的露營車冒險。</p>
+          <button class="hero-button" data-goto="itinerary">查看行程 <span>↗</span></button>
+        </div>
+        <div class="hero-image">
+          <div class="hero-caption"><span>01 / SOUTH ISLAND</span><b>Mountains call. We go.</b></div>
+        </div>
+      </section>
+
+      <section class="trip-meta">
+        <div><span class="meta-icon">▣</span><div><small>預計出發</small><b id="date-label">2027 年 7 月</b></div></div>
+        <div><span class="meta-icon">♧</span><div><small>旅行人數</small><b>2 位大人・2 位小孩</b></div></div>
+        <div><span class="meta-icon">⌁</span><div><small>旅行方式</small><b>露營車自駕</b></div></div>
+        <div><span class="meta-icon">◷</span><div><small>旅行天數</small><b id="duration-label">待確認</b></div></div>
+      </section>
+
+      <section class="content-section" id="overview-page">
+        <div class="section-head"><div><p class="eyebrow">PLAN AT A GLANCE</p><h2>旅程儀表板</h2></div><span class="subtle">你的專屬旅行工作台</span></div>
+        <div class="stats-grid">
+          <article class="stat"><div class="stat-top"><span>預算規劃</span><span class="stat-icon">＄</span></div><strong id="budget-total">NT$ 0</strong><small>目前已列入的預估費用</small><div class="mini-line"><span style="width:44%"></span></div></article>
+          <article class="stat"><div class="stat-top"><span>待完成預訂</span><span class="stat-icon amber">◷</span></div><strong id="pending-count">6 項</strong><small>機票、露營車與營地等</small><div class="mini-line amber-line"><span id="booking-progress" style="width:0%"></span></div></article>
+          <article class="stat"><div class="stat-top"><span>行程規劃</span><span class="stat-icon blue">⌖</span></div><strong id="itinerary-count">範例路線</strong><small>目的地與日期尚未確認</small><div class="mini-line blue-line"><span style="width:25%"></span></div></article>
+        </div>
+        <div class="two-col">
+          <article class="panel">
+            <div class="panel-heading"><div><p class="eyebrow">ROUTE IDEAS</p><h3>南島靈感路線</h3></div><span class="round-icon">↗</span></div>
+            <div class="route-list">
+              <div class="route-stop"><div class="stop-number">01</div><div><b>Christchurch 基督城</b><small>取車、採買、熟悉露營車</small></div><span>起點候選</span></div>
+              <div class="route-stop"><div class="stop-number">02</div><div><b>Lake Tekapo 蒂卡波湖</b><small>湖景、星空；冬季留意結冰</small></div><span>自然景觀</span></div>
+              <div class="route-stop"><div class="stop-number">03</div><div><b>Aoraki / Mount Cook</b><small>山景步道；依天候調整</small></div><span>山岳</span></div>
+              <div class="route-stop"><div class="stop-number">04</div><div><b>Queenstown 皇后鎮</b><small>市區活動與天候備案</small></div><span>度假小鎮</span></div>
+            </div>
+            <p class="footnote">這是候選路線，不是已確認的每日行程。實際路線需依天數、取還車地點及冬季路況調整。</p>
+            <button class="text-button" data-goto="itinerary">規劃每日行程 →</button>
+          </article>
+          <article class="panel">
+            <div class="panel-heading"><div><p class="eyebrow">BEFORE YOU GO</p><h3>下一步待辦</h3></div><span class="round-icon">✓</span></div>
+            <div class="todo-list" id="overview-todos"></div>
+            <button class="text-button" data-goto="checklist">查看完整清單 →</button>
+          </article>
+        </div>
+        <div class="winter-note"><div class="snow-icon">❄</div><div><b>七月是紐西蘭冬季：行程要保留彈性</b><p>山區可能出現雪、結冰與道路管制。建議安排白天駕駛、縮短單日車程，並為天候準備替代方案。</p></div><a href="https://www.journeys.nzta.govt.nz/highway-conditions" target="_blank" rel="noreferrer">官方路況 ↗</a></div>
+      </section>
+
+      <section class="content-section hidden" id="itinerary-page">
+        <div class="section-head"><div><p class="eyebrow">DAY BY DAY</p><h2>每日行程</h2></div><button class="primary" id="add-day">＋ 新增一天</button></div>
+        <p class="intro">先用候選目的地建立草案。確認旅行天數、航班與取還車位置後，再排定每天路線。</p>
+        <div id="days-list" class="days-list"></div>
+      </section>
+
+      <section class="content-section hidden" id="budget-page">
+        <div class="section-head"><div><p class="eyebrow">TRIP FINANCES</p><h2>預算規劃</h2></div><button class="primary" id="add-budget">＋ 新增費用</button></div>
+        <div class="budget-summary"><div><small>目前預估總額</small><strong id="budget-total-large">NT$ 0</strong></div><div><small>費用項目</small><strong id="budget-item-count">0</strong></div><div><small>幣別提醒</small><strong>NZD / TWD</strong></div></div>
+        <div class="table-wrap"><table><thead><tr><th>類別</th><th>項目</th><th>預估金額（TWD）</th><th>備註</th><th></th></tr></thead><tbody id="budget-rows"></tbody></table></div>
+        <p class="footnote">金額預設為 0，請依實際報價填入。匯率、租車報價與營地費用會變動，尚未確認的金額不應視為報價。</p>
+      </section>
+
+      <section class="content-section hidden" id="checklist-page">
+        <div class="section-head"><div><p class="eyebrow">BOOKING TRACKER</p><h2>預訂與準備清單</h2></div><span class="completion-pill" id="checklist-progress">0% 完成</span></div>
+        <p class="intro">勾選後會保存在這台裝置的瀏覽器中。這版尚未同步到雲端。</p>
+        <div class="check-groups" id="checklist-groups"></div>
+      </section>
+
+      <section class="content-section hidden" id="safety-page">
+        <div class="section-head"><div><p class="eyebrow">WINTER ROAD SMARTS</p><h2>冬季安全中心</h2></div><span class="completion-pill">出發前必看</span></div>
+        <div class="safety-grid">
+          <article class="safety-card"><span>01</span><h3>每日查路況</h3><p>出發前查看官方道路狀況、封路、施工及天氣警示。山區路況可能快速改變。</p><a href="https://www.journeys.nzta.govt.nz/highway-conditions" target="_blank" rel="noreferrer">NZTA Highway Conditions ↗</a></article>
+          <article class="safety-card"><span>02</span><h3>確認雪鏈與租車規定</h3><p>向租車公司確認雪鏈是否提供、哪些路段需要、保險是否涵蓋冬季駕駛，以及安裝教學。</p></article>
+          <article class="safety-card"><span>03</span><h3>避免夜間與疲勞駕駛</h3><p>預留充足時間，減少長距離連續駕駛。遇到冰雪或強風時，以安全為優先，必要時停留一晚。</p></article>
+          <article class="safety-card"><span>04</span><h3>檢查 Milford Road</h3><p>冬季可能有雪、冰及雪崩風險相關限制。若不熟悉冬季山路，評估改搭當地巴士或旅行團。</p><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/fiordland/places/fiordland-national-park/places-to-go/milford-road-milford-sound-area/" target="_blank" rel="noreferrer">DOC 官方資訊 ↗</a></article>
+        </div>
+        <div class="winter-note"><div class="snow-icon">!</div><div><b>這不是即時道路警報系統</b><p>網站提供規劃提醒與官方連結；出發前及每天上路前，仍須重新確認天氣、道路與租車公司的最新要求。</p></div></div>
+      </section>
+      <footer>WILD FERN · FAMILY CAMPERVAN JOURNEY 2027 <span>•</span> MADE FOR YOUR NEXT ADVENTURE</footer>
+    </main>
+  </div>
+
+  <dialog id="trip-dialog">
+    <form method="dialog" id="trip-form">
+      <div class="dialog-head"><div><p class="eyebrow">TRIP SETTINGS</p><h2>旅行設定</h2></div><button class="close" value="cancel">×</button></div>
+      <label>預計出發日期<input type="date" id="start-date" value="2027-07-01"/></label>
+      <label>預計結束日期<input type="date" id="end-date" value="2027-07-14"/></label>
+      <label>主要旅行區域<select id="region"><option value="south">南島為主</option><option value="north">北島為主</option><option value="both">南北島</option><option value="unsure">尚未決定</option></select></label>
+      <label>預計總預算（新台幣）<input type="number" id="target-budget" min="0" step="1000" value="250000"/></label>
+      <button class="primary full" id="save-trip" value="save">儲存設定</button>
+    </form>
+  </dialog>
+  <dialog id="day-dialog">
+    <form method="dialog" id="day-form">
+      <div class="dialog-head"><div><p class="eyebrow">ITINERARY EDITOR</p><h2 id="day-dialog-title">編輯行程</h2></div><button class="close" value="cancel">×</button></div>
+      <input type="hidden" id="day-id"/>
+      <label>日期<input type="date" id="day-date" required/></label>
+      <label>目的地<input id="day-place" required placeholder="例如：Lake Tekapo"/></label>
+      <label>當日計畫<textarea id="day-plan" rows="3" placeholder="景點、用餐、採買或備案"></textarea></label>
+      <label>預估駕駛時間（小時）<input type="number" id="day-drive" min="0" max="12" step="0.5" value="2"/></label>
+      <button class="primary full" id="save-day" value="save">儲存行程</button>
+    </form>
+  </dialog>
+  <dialog id="budget-dialog">
+    <form method="dialog" id="budget-form">
+      <div class="dialog-head"><div><p class="eyebrow">BUDGET ITEM</p><h2>新增費用</h2></div><button class="close" value="cancel">×</button></div>
+      <label>類別<select id="budget-category"><option>機票</option><option>露營車租賃</option><option>燃油與交通</option><option>營地與住宿</option><option>餐食與採買</option><option>活動門票</option><option>保險與網路</option><option>其他</option></select></label>
+      <label>項目名稱<input id="budget-name" required placeholder="例如：露營車 14 天"/></label>
+      <label>預估金額（TWD）<input id="budget-amount" type="number" min="0" required value="0"/></label>
+      <label>備註<input id="budget-note" placeholder="報價來源、是否已付款等"/></label>
+      <button class="primary full" id="save-budget" value="save">新增費用</button>
+    </form>
+  </dialog>
+  <script src="app.js"></script>
+</body>
+</html>
