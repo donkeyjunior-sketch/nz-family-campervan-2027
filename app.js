@@ -20,7 +20,7 @@ const defaultState = {
     { id: 14, date: '2027-07-08', place: 'Oamaru 奧瑪魯', plan: '由蒂卡波前往奧瑪魯，沿途依天候安排休息。抵達後可探索歷史街區；野生動物觀賞請遵守現場指引並保持距離。', drive: 2.5 },
     { id: 15, date: '2027-07-09', place: 'Christchurch 基督城（還車前一晚）', plan: '由奧瑪魯返回基督城，預留加油、整理行李與露營車還車的緩衝時間。建議不要把長途移動排在國際航班當天。', drive: 3 },
     { id: 16, date: '2027-07-10', place: 'Christchurch 基督城（返程日）', plan: '確認露營車還車流程、航班報到時間與交通安排。若航班較早，請依租車公司規定提前安排還車及前往機場。', drive: 0 }
-  ]
+  ],
   budgets: [
     { id: 1, category: '機票', name: '四人來回機票', amount: 0, note: '待查價' },
     { id: 2, category: '露營車租賃', name: '四人露營車租賃', amount: 0, note: '含保險與冬季設備待確認' },
