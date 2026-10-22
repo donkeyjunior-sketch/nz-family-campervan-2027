@@ -4,11 +4,21 @@ const storeKey = 'wildFernNZ2027';
 const defaultState = {
   settings: { start: '2027-07-01', end: '2027-07-14', region: 'south', targetBudget: 250000 },
   days: [
-    { id: 1, date: '2027-07-01', place: 'Christchurch 基督城', plan: '抵達、領取露營車、超市採買與熟悉車輛設備。若長途飛行後疲勞，建議先住市區或附近營地。', drive: 0 },
-    { id: 2, date: '2027-07-02', place: 'Lake Tekapo 蒂卡波湖', plan: '白天移動，沿途留意天氣與路面狀況。視天候安排湖邊散步，夜間活動以天候為準。', drive: 3 },
-    { id: 3, date: '2027-07-03', place: 'Aoraki / Mount Cook 庫克山', plan: '視步道開放狀況選擇短程步道；若有雪、冰或強風，改為觀景點或室內活動。', drive: 1.5 },
-    { id: 4, date: '2027-07-04', place: 'Queenstown 皇后鎮', plan: '保留彈性移動日。不要只按地圖距離估算車程；遇到惡劣路況時可延住。', drive: 3.5 }
-  ],
+    { id: 1, date: '2027-07-01', place: 'Christchurch 基督城', plan: '抵達基督城、領取露營車、採買食物並熟悉車輛與冬季設備。若航班抵達較晚或長途飛行後疲勞，建議在基督城附近過夜。', drive: 0 },
+    { id: 2, date: '2027-07-02', place: 'Franz Josef Glacier 福克斯／法蘭士約瑟夫冰河區', plan: '由基督城穿越南阿爾卑斯山前往西海岸，車程較長，途中安排休息並預留天候緩衝。冬季請先確認 Arthur’s Pass 路況與露營車行車限制。', drive: 5.5 },
+    { id: 3, date: '2027-07-03', place: 'Franz Josef Glacier 法蘭士約瑟夫冰河', plan: '安排冰河觀景步道或當地導覽活動；實際可行路線依降雨、步道公告與活動營運狀況調整，保留雨天備案。', drive: 1 },
+    { id: 4, date: '2027-07-04', place: 'Wanaka 瓦納卡', plan: '沿西海岸南下，經 Haast Pass 前往瓦納卡。山路彎多，冬季可能有冰雪或封路，出發前查詢官方路況並避免趕夜路。', drive: 4.5 },
+    { id: 5, date: '2027-07-05', place: 'Wanaka 瓦納卡', plan: '瓦納卡彈性停留日，可安排湖畔散步、鎮上休息或視天氣選擇短程活動；冬季戶外行程以當日公告為準。', drive: 0.5 },
+    { id: 6, date: '2027-07-06', place: 'Queenstown 皇后鎮', plan: '由瓦納卡前往皇后鎮，依路況選擇 Crown Range 或較保守的替代路線；冬季行車前確認租車公司對雪鏈與山路的規定。', drive: 1.5 },
+    { id: 7, date: '2027-07-07', place: 'Queenstown 皇后鎮', plan: '皇后鎮停留日，安排市區、湖畔或室內活動。可保留作為天候備用日，熱門活動需事先確認冬季營運時間。', drive: 0.5 },
+    { id: 8, date: '2027-07-08', place: 'Te Anau 蒂阿瑙', plan: '從皇后鎮開往蒂阿瑙，抵達後補給並確認隔日前往 Milford Sound 的道路、天氣與遊船資訊。', drive: 2 },
+    { id: 9, date: '2027-07-09', place: 'Milford Sound 米爾福德峽灣', plan: '由蒂阿瑙往返米爾福德峽灣，預留充足時間給山路、停靠觀景點及遊船。冬季道路可能因雪崩風險或天候封閉，出發前查詢官方即時路況；若不安全，改期或參加合適的當地行程。', drive: 4 },
+    { id: 10, date: '2027-07-10', place: 'Te Anau → Mt Cook 蒂阿瑙前往庫克山', plan: '長距離移動日，經內陸前往 Aoraki / Mount Cook 區域。建議早出發、途中安排休息，並依天候及路況評估是否需要在途中增加住宿。', drive: 5 },
+    { id: 11, date: '2027-07-11', place: 'Aoraki / Mt Cook 庫克山', plan: '視步道開放、風雪與能見度安排短程步道或觀景點；冬季不勉強進行高風險健行，並確認營地及住宿設施是否開放。', drive: 0.5 },
+    { id: 12, date: '2027-07-12', place: 'Lake Tekapo 蒂卡波湖', plan: '由庫克山前往蒂卡波湖，路程較短。可安排湖畔景點與休息；觀星活動取決於雲量、風雪及當晚道路狀況。', drive: 1.5 },
+    { id: 13, date: '2027-07-13', place: 'Oamaru 奧瑪魯', plan: '由蒂卡波前往奧瑪魯，沿途依天候安排休息。抵達後可探索歷史街區；野生動物觀賞請遵守現場指引並保持距離。', drive: 2.5 },
+    { id: 14, date: '2027-07-14', place: 'Christchurch 基督城（返程）', plan: '由奧瑪魯返回基督城，預留還車、加油、整理行李及前往機場的緩衝時間。若當天搭乘國際航班，請依航班時間評估是否應提前一晚回到基督城。', drive: 3 }
+  ]
   budgets: [
     { id: 1, category: '機票', name: '四人來回機票', amount: 0, note: '待查價' },
     { id: 2, category: '露營車租賃', name: '四人露營車租賃', amount: 0, note: '含保險與冬季設備待確認' },
@@ -31,6 +41,18 @@ const defaultState = {
 let state;
 try { state = JSON.parse(localStorage.getItem(storeKey)) || structuredClone(defaultState); }
 catch { state = structuredClone(defaultState); }
+
+/* Upgrade only the untouched four-day sample itinerary to the user's full route. */
+const samplePlaces = ['Christchurch 基督城', 'Lake Tekapo 蒂卡波湖', 'Aoraki / Mount Cook 庫克山', 'Queenstown 皇后鎮'];
+const isUntouchedSample = Array.isArray(state.days) && state.days.length === 4 &&
+  state.days.every((d, i) => d.id === i + 1 && d.place === samplePlaces[i]);
+if (isUntouchedSample) {
+  state.days = structuredClone(defaultState.days);
+  state.settings.start = '2027-07-01';
+  state.settings.end = '2027-07-14';
+  try { localStorage.setItem(storeKey, JSON.stringify(state)); } catch {}
+}
+
 function persist(){ localStorage.setItem(storeKey, JSON.stringify(state)); renderAll(); }
 function money(n){ return 'NT$ ' + Number(n || 0).toLocaleString('zh-TW'); }
 function dateObj(s){ return s ? new Date(s + 'T12:00:00') : null; }
