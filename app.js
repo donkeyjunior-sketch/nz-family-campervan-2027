@@ -16,8 +16,10 @@ const defaultState = {
     { id: 10, date: '2027-07-04', place: 'Te Anau → Mt Cook 蒂阿瑙前往庫克山', plan: '長距離移動日，經內陸前往 Aoraki / Mount Cook 區域。建議早出發、途中安排休息，並依天候及路況評估是否需要在途中增加住宿。', drive: 5 },
     { id: 11, date: '2027-07-05', place: 'Aoraki / Mt Cook 庫克山', plan: '視步道開放、風雪與能見度安排短程步道或觀景點；冬季不勉強進行高風險健行，並確認營地及住宿設施是否開放。', drive: 0.5 },
     { id: 12, date: '2027-07-06', place: 'Lake Tekapo 蒂卡波湖', plan: '由庫克山前往蒂卡波湖，路程較短。可安排湖畔景點與休息；觀星活動取決於雲量、風雪及當晚道路狀況。', drive: 1.5 },
-    { id: 13, date: '2027-07-07', place: 'Oamaru 奧瑪魯', plan: '由蒂卡波前往奧瑪魯，沿途依天候安排休息。抵達後可探索歷史街區；野生動物觀賞請遵守現場指引並保持距離。', drive: 2.5 },
-    { id: 14, date: '2027-07-08', place: 'Christchurch 基督城（返程）', plan: '由奧瑪魯返回基督城，預留還車、加油、整理行李及前往機場的緩衝時間。若當天搭乘國際航班，請依航班時間評估是否應提前一晚回到基督城。', drive: 3 }
+    { id: 13, date: '2027-07-07', place: 'Lake Tekapo 蒂卡波湖（彈性緩衝日）', plan: '安排彈性休息日，或依天候補足庫克山／蒂卡波湖周邊行程。冬季道路及步道可能因雪、冰或強風調整，建議保留這一天作為天候備案。', drive: 0.5 },
+    { id: 14, date: '2027-07-08', place: 'Oamaru 奧瑪魯', plan: '由蒂卡波前往奧瑪魯，沿途依天候安排休息。抵達後可探索歷史街區；野生動物觀賞請遵守現場指引並保持距離。', drive: 2.5 },
+    { id: 15, date: '2027-07-09', place: 'Christchurch 基督城（還車前一晚）', plan: '由奧瑪魯返回基督城，預留加油、整理行李與露營車還車的緩衝時間。建議不要把長途移動排在國際航班當天。', drive: 3 },
+    { id: 16, date: '2027-07-10', place: 'Christchurch 基督城（返程日）', plan: '確認露營車還車流程、航班報到時間與交通安排。若航班較早，請依租車公司規定提前安排還車及前往機場。', drive: 0 }
   ]
   budgets: [
     { id: 1, category: '機票', name: '四人來回機票', amount: 0, note: '待查價' },
@@ -47,6 +49,32 @@ const samplePlaces = ['Christchurch 基督城', 'Lake Tekapo 蒂卡波湖', 'Aor
 const isUntouchedSample = Array.isArray(state.days) && state.days.length === 4 &&
   state.days.every((d, i) => d.id === i + 1 && d.place === samplePlaces[i]);
 if (isUntouchedSample) {
+  state.days = structuredClone(defaultState.days);
+  state.settings.start = '2027-06-25';
+  state.settings.end = '2027-07-10';
+  try { localStorage.setItem(storeKey, JSON.stringify(state)); } catch {}
+}
+
+/* Update the previous untouched 14-day sample itinerary to the confirmed 16-day travel dates. */
+const oldRoutePlaces = [
+  'Christchurch 基督城',
+  'Franz Josef Glacier 福克斯／法蘭士約瑟夫冰河區',
+  'Franz Josef Glacier 法蘭士約瑟夫冰河',
+  'Wanaka 瓦納卡',
+  'Wanaka 瓦納卡',
+  'Queenstown 皇后鎮',
+  'Queenstown 皇后鎮',
+  'Te Anau 蒂阿瑙',
+  'Milford Sound 米爾福德峽灣',
+  'Te Anau → Mt Cook 蒂阿瑙前往庫克山',
+  'Aoraki / Mt Cook 庫克山',
+  'Lake Tekapo 蒂卡波湖',
+  'Oamaru 奧瑪魯',
+  'Christchurch 基督城（返程）'
+];
+const isUntouchedOldRoute = Array.isArray(state.days) && state.days.length === 14 &&
+  state.days.every((d, i) => d.id === i + 1 && d.place === oldRoutePlaces[i]);
+if (isUntouchedOldRoute) {
   state.days = structuredClone(defaultState.days);
   state.settings.start = '2027-06-25';
   state.settings.end = '2027-07-10';
