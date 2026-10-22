@@ -102,6 +102,9 @@ function renderOverview(){
   const total=state.budgets.reduce((s,b)=>s+Number(b.amount||0),0);
   $('#budget-total').textContent=money(total);
   $('#pending-count').textContent=`${state.checklist.filter(c=>!c.done).length} 項`;
+  $('#itinerary-count').textContent = `${state.days.length} 天行程`;
+  const itineraryNote = $('#itinerary-count')?.parentElement?.querySelector('small');
+  if (itineraryNote) itineraryNote.textContent = `${fmtDate(state.settings.start)}–${fmtDate(state.settings.end)} · 南島環線草案`;
   const done=state.checklist.filter(c=>c.done).length;
   $('#booking-progress').style.width=`${state.checklist.length?done/state.checklist.length*100:0}%`;
   $('#overview-todos').innerHTML=state.checklist.filter(c=>!c.done).slice(0,3).map(c=>`<div class="todo-item"><input type="checkbox" data-check="${c.id}"><div><b>${esc(c.title)}</b><small>${esc(c.note)}</small></div></div>`).join('') || '<p class="footnote">太好了！目前清單已完成。</p>';
