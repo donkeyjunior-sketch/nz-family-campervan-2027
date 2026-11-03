@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#183f3a" />
   <title>紐西蘭家庭露營車之旅 2027</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg?v=1" />
-  <link rel="stylesheet" href="style.css?v=20261103-1" />
+  <link rel="stylesheet" href="style.css?v=20261103-2" />
 </head>
 <body>
   <div class="app">
@@ -56,7 +56,30 @@
           <article class="stat"><div class="stat-top"><span>待完成預訂</span><span class="stat-icon amber">◷</span></div><strong id="pending-count">6 項</strong><small>機票、露營車與營地等</small><div class="mini-line amber-line"><span id="booking-progress" style="width:0%"></span></div></article>
           <article class="stat"><div class="stat-top"><span>行程規劃</span><span class="stat-icon blue">⌖</span></div><strong id="itinerary-count">範例路線</strong><small>目的地與日期尚未確認</small><div class="mini-line blue-line"><span style="width:25%"></span></div></article>
         </div>
-        <div class="two-col">
+                <article class="panel route-map-panel">
+          <div class="panel-heading"><div><p class="eyebrow">YOUR ROUTE / SOUTH ISLAND</p><h3>南島自駕路線圖</h3><p class="map-subtitle">依日期順序看懂行車方向；示意圖非導航地圖，實際道路請以導航與官方路況為準。</p></div><span class="round-icon">⌖</span></div>
+          <div class="route-map-wrap">
+            <svg class="south-island-map" viewBox="0 0 760 500" role="img" aria-label="紐西蘭南島自駕路線示意圖：基督城、瓦納卡、皇后鎮、蒂阿瑙、米爾福德峽灣、庫克山、蒂卡波、奧瑪魯，再返回基督城">
+              <defs><linearGradient id="land" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e6eee3"/><stop offset="1" stop-color="#d3e1d5"/></linearGradient></defs>
+              <path class="island-shape" d="M280 30 L334 43 374 72 414 86 455 115 478 143 520 159 550 190 573 221 584 254 570 280 552 307 536 339 508 372 493 411 468 440 439 464 415 477 393 455 375 424 349 400 330 367 305 337 287 306 271 274 252 244 235 211 225 179 229 149 246 116 257 82 Z"/>
+              <path class="route-line" d="M520 159 L435 292 L403 329 L352 365 L300 316 L352 365 L500 235 L548 211 L614 178 L520 159"/>
+              <path class="route-spur" d="M352 365 L300 316"/>
+              <g class="map-stop start-stop"><circle cx="520" cy="159" r="8"/><text x="534" y="151">01 基督城</text><text class="map-date" x="534" y="168">6/25</text></g>
+              <g class="map-stop"><circle cx="435" cy="292" r="7"/><text x="448" y="285">02 瓦納卡</text><text class="map-date" x="448" y="302">6/26–28</text></g>
+              <g class="map-stop"><circle cx="403" cy="329" r="7"/><text x="416" y="324">03 皇后鎮</text><text class="map-date" x="416" y="341">6/29–7/1</text></g>
+              <g class="map-stop"><circle cx="352" cy="365" r="7"/><text x="365" y="360">04 蒂阿瑙</text><text class="map-date" x="365" y="377">7/2</text></g>
+              <g class="map-stop"><circle cx="300" cy="316" r="7"/><text x="183" y="305">05 米爾福德峽灣</text><text class="map-date" x="224" y="322">7/3 往返支線</text></g>
+              <g class="map-stop"><circle cx="500" cy="235" r="7"/><text x="512" y="229">06 庫克山</text><text class="map-date" x="512" y="246">7/4–5</text></g>
+              <g class="map-stop"><circle cx="548" cy="211" r="7"/><text x="560" y="207">07 蒂卡波</text><text class="map-date" x="560" y="224">7/6–7</text></g>
+              <g class="map-stop"><circle cx="614" cy="178" r="7"/><text x="626" y="173">08 奧瑪魯</text><text class="map-date" x="626" y="190">7/8</text></g>
+              <g class="map-stop end-stop"><circle cx="520" cy="159" r="11"/><circle class="end-inner" cx="520" cy="159" r="4"/><text x="534" y="128">09 回基督城</text><text class="map-date" x="534" y="143">7/9–10</text></g>
+              <text class="map-ocean" x="55" y="245">塔斯曼海</text><text class="map-ocean" x="618" y="365">太平洋</text>
+              <text class="map-north" x="690" y="50">N ↑</text>
+            </svg>
+          </div>
+          <div class="map-legend"><span><i class="legend-route"></i> 自駕主線</span><span><i class="legend-spur"></i> 米爾福德峽灣往返支線</span><span class="map-note">不經 Franz Josef 西海岸</span></div>
+        </article>
+<div class="two-col">
           <article class="panel">
             <div class="panel-heading"><div><p class="eyebrow">ROUTE IDEAS</p><h3>南島靈感路線</h3></div><span class="round-icon">↗</span></div>
             <div class="route-list">
