@@ -81,3 +81,25 @@ button { min-height: 44px; }
   button, input, select, textarea { font-size: 16px; }
   .nav { min-height: 46px; }
 }
+
+/* South Island route overview map */
+.route-map-panel{margin:0 0 14px;padding:20px 22px}
+.map-subtitle{font-size:13px;line-height:1.6;color:#87918a;margin:7px 0 0;max-width:700px}
+.route-map-wrap{margin-top:10px;background:#f8faf6;border:1px solid #edf0e9;border-radius:12px;overflow:hidden}
+.south-island-map{display:block;width:100%;height:auto;max-height:560px}
+.island-shape{fill:url(#land);stroke:#b8cbb9;stroke-width:2.5;stroke-linejoin:round}
+.route-line{fill:none;stroke:#47785a;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:7 7}
+.route-spur{stroke:#d98b54;stroke-width:4;stroke-dasharray:5 6}
+.map-stop circle{fill:#fff;stroke:#47785a;stroke-width:4}
+.map-stop text{font-family:'Noto Sans TC',sans-serif;font-size:13px;font-weight:700;fill:#294b38;paint-order:stroke;stroke:#f8faf6;stroke-width:4px;stroke-linejoin:round}
+.map-stop .map-date{font-size:11px;font-weight:500;fill:#708273}
+.map-stop.end-stop circle{fill:#e8b07d;stroke:#fff;stroke-width:3}
+.map-stop.end-stop .end-inner{fill:#183f3a;stroke:none}
+.map-ocean{font-size:14px;letter-spacing:2px;fill:#a2b5b0;font-family:'Noto Sans TC',sans-serif}
+.map-north{font-size:14px;font-weight:700;fill:#617b6a}
+.map-legend{display:flex;flex-wrap:wrap;align-items:center;gap:16px;padding:12px 4px 0;color:#728075;font-size:13px}
+.map-legend span{display:inline-flex;align-items:center;gap:7px}
+.legend-route,.legend-spur{display:inline-block;width:25px;height:0;border-top:3px dashed #47785a}
+.legend-spur{border-color:#d98b54}
+.map-legend .map-note{margin-left:auto;color:#a06e43}
+@media(max-width:720px){.route-map-panel{padding:15px 12px}.map-subtitle{font-size:12px}.south-island-map{min-width:600px}.route-map-wrap{overflow-x:auto}.map-legend{font-size:12px;gap:9px}.map-legend .map-note{margin-left:0}}
