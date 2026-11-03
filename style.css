@@ -103,3 +103,18 @@ button { min-height: 44px; }
 .legend-spur{border-color:#d98b54}
 .map-legend .map-note{margin-left:auto;color:#a06e43}
 @media(max-width:720px){.route-map-panel{padding:15px 12px}.map-subtitle{font-size:12px}.south-island-map{min-width:600px}.route-map-wrap{overflow-x:auto}.map-legend{font-size:12px;gap:9px}.map-legend .map-note{margin-left:0}}
+
+
+/* Real geographic route map (Leaflet + OpenStreetMap) */
+.real-map-wrap{position:relative}
+.real-route-map{width:100%;height:520px;border-radius:14px;overflow:hidden;background:#e7ece8;z-index:0}
+.map-loading{margin:8px 0 0;color:#65746b;font-size:13px}
+.route-map-panel .map-legend{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:13px;font-size:13px;color:#617067}
+.route-map-panel .legend-route{display:inline-block;width:25px;border-top:4px solid #dc8b56;vertical-align:middle;margin-right:6px}
+.route-map-panel .legend-spur{display:inline-block;width:25px;border-top:4px dashed #6e8b68;vertical-align:middle;margin-right:6px}
+.route-map-panel .map-note{color:#8a6b52}
+.route-marker{background:#183f3a;border:2px solid white;border-radius:50%;width:28px;height:28px;color:white;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;box-shadow:0 1px 6px #0004}
+.route-marker.milford{background:#718b64}
+.leaflet-popup-content{font-family:'DM Sans','Noto Sans TC',sans-serif;font-size:14px;line-height:1.6}
+.leaflet-control-attribution{font-size:10px!important}
+@media(max-width:720px){.real-route-map{height:420px}.route-map-panel .map-legend{font-size:12px;gap:9px}}
