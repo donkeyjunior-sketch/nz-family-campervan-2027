@@ -98,7 +98,61 @@ if (isUntouchedFranzJosefRoute) {
   try { localStorage.setItem(storeKey, JSON.stringify(state)); } catch {}
 }
 
-function persist(){ localStorage.setItem(storeKey, JSON.stringify(state)); renderAll(); }
+function persist(){ localStorage.setItem(storeKey, JSON.stringify(state)); function initRealRouteMap(){
+  const el = $('#south-island-map');
+  if (!el || !window.L) { const status=$('#map-status'); if(status) status.textContent='地圖載入失敗，請重新整理或確認網路連線。'; return; }
+  const stops = [
+    {name:'Christchurch 基督城',date:'6/25、7/9–10',lat:-43.5321,lon:172.6362,n:1},
+    {name:'Wanaka 瓦納卡',date:'6/26–28',lat:-44.6950,lon:169.1360,n:2},
+    {name:'Queenstown 皇后鎮',date:'6/29–7/1',lat:-45.0312,lon:168.6626,n:3},
+    {name:'Te Anau 蒂阿瑙',date:'7/2',lat:-45.4145,lon:167.7181,n:4},
+    {name:'Milford Sound 米爾福德峽灣',date:'7/3 往返支線',lat:-44.6719,lon:167.9250,n:'↔',spur:true},
+    {name:'Aoraki / Mt Cook 庫克山',date:'7/4–5',lat:-43.7347,lon:170.0965,n:5},
+    {name:'Lake Tekapo 蒂卡波湖',date:'7/6–7',lat:-44.0047,lon:170.4770,n:6},
+    {name:'Oamaru 奧瑪魯',date:'7/8',lat:-45.0975,lon:170.9700,n:7}
+  ];
+  const map=L.map(el,{scrollWheelZoom:false}).setView([-44.3,169.6],6);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+    maxZoom:19, attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">OpenStreetMap contributors</a>'
+  }).addTo(map);
+  const iconFor=(label,milford=false)=>L.divIcon({className:'',html:'<div class="route-marker'+(milford?' milford':'')+'">'+label+'</div>',iconSize:[28,28],iconAnchor:[14,14]});
+  stops.forEach(s=>L.marker([s.lat,s.lon],{icon:iconFor(s.n,s.spur)}).addTo(map).bindPopup('<b>'+esc(s.name)+'</b><br>'+esc(s.date)));
+  const coords=[
+    [stops[0].lon,stops[0].lat],[stops[1].lon,stops[1].lat],[stops[2].lon,stops[2].lat],
+    [stops[3].lon,stops[3].lat],[stops[4].lon,stops[4].lat],[stops[3].lon,stops[3].lat],
+    [stops[5].lon,stops[5].lat],[stops[6].lon,stops[6].lat],[stops[7].lon,stops[7].lat],
+    [stops[0].lon,stops[0].lat]
+  ];
+  const bounds=L.latLngBounds(stops.map(s=>[s.lat,s.lon]));
+  map.fitBounds(bounds.pad(0.12));
+  const status=$('#map-status');
+  (async()=>{
+    let routed=0;
+    for(let i=0;i<coords.length-1;i++){
+      const a=coords[i],b=coords[i+1];
+      const isSpur=(i===3||i===4);
+      try{
+        const url='https://router.project-osrm.org/route/v1/driving/'+a.join(',')+';'+b.join(',')+'?overview=full&geometries=geojson&steps=false';
+        const res=await fetch(url);
+        if(!res.ok) throw new Error('routing unavailable');
+        const data=await res.json();
+        if(data.code!=='Ok'||!data.routes?.[0]?.geometry?.coordinates) throw new Error('route unavailable');
+        const latlngs=data.routes[0].geometry.coordinates.map(p=>[p[1],p[0]]);
+        L.polyline(latlngs,{color:isSpur?'#718b64':'#dc8b56',weight:5,opacity:.9,dashArray:isSpur?'8 9':null,lineCap:'round'}).addTo(map);
+        routed++;
+      }catch(e){
+        L.polyline([[a[1],a[0]],[b[1],b[0]]],{color:isSpur?'#718b64':'#dc8b56',weight:4,opacity:.65,dashArray:'6 8'}).addTo(map);
+      }
+    }
+    if(status) status.textContent=routed===coords.length-1
+      ? '道路路線由 OSRM 路由服務計算，底圖 © OpenStreetMap；實際行車仍請依導航與當日路況。'
+      : '已顯示真實地圖與站點；部分道路路線服務未回應，虛線段為站點間連線，請勿當作導航。';
+    map.invalidateSize();
+  })();
+}
+
+renderAll();
+initRealRouteMap(); }
 function money(n){ return 'NT$ ' + Number(n || 0).toLocaleString('zh-TW'); }
 function dateObj(s){ return s ? new Date(s + 'T12:00:00') : null; }
 function fmtDate(s){ const d=dateObj(s); return d ? `${d.getFullYear()}/${String(d.getMonth()+1).padStart(2,'0')}/${String(d.getDate()).padStart(2,'0')}` : '日期待定'; }
